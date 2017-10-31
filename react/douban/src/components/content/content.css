@@ -1,0 +1,22 @@
+section {
+  flex: 1; }
+  section .content {
+    height: 1.61rem;
+    border-bottom: 1px solid #ccc;
+    display: flex; }
+    section .content .left {
+      width: 66.9%;
+      text-align: left; }
+      section .content .left h2 {
+        padding: .15rem .17rem .1rem .17rem; }
+      section .content .left p {
+        padding-left: .18rem;
+        padding-bottom: .5rem;
+        color: #A1A1A1; }
+      section .content .left span {
+        padding-left: .18rem;
+        color: #ccc; }
+    section .content .right dl dt {
+      padding: .2rem 0 .1rem 15%; }
+    section .content .right dl dd {
+      color: #A1A1A1; }

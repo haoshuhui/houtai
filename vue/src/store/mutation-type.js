@@ -1,0 +1,3 @@
+export const GET_MOVIE_LIST = 'GET_MOVIE_LIST'
+export const GET_MOVIEMAIN_LIST = 'GET_MOVIEMAIN_LIST'
+export const SET_USER_INFOR = 'SET_USER_INFOR'

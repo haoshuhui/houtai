@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body> 
+    <div class="wrap" id="app">
+    <table >
+    <thead>
+        <tr style="border-left:none;border-right:none;">
+            <th><label><input class="check-all check" v-model="chooseAll" type="checkbox" style="margin-left:30px;"/>&nbsp;&nbsp;All</label></th>
+            <th>commodity information</th>
+            <th>commodity price</th>
+            <th>Quantity</th>
+            <th>Total price</th>
+            <th>Operate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="(item,$index) in list">
+            <td class="checkbox"><input class="check-one check" v-model="item.isSelected" type="checkbox"/></td>
+            <td class="goods" >
+                <img :src="item.infor.img" alt=""/>
+                <span>{{item.infor.name}}</span>
+                <div class="box" v-on:hover='hovers($event)'>
+                    <p v-for='i in item.spec'>{{i.name}}:<a href="#">{{i.value}}</a> </p>
+                    <div class="information">
+                        <section v-for='i in item.spec'>
+                            {{i.name}}:
+                            <aside v-if="i.type == 'radio'">
+                                <div v-for="(val,$index2) in i.data" :key="$index+''+$index2">
+                                    <input style="display:none;" :value="val" class="radio" type="radio" :name="i.key" v-model="i.value" :id="$index+''+$index2+i.key" />
+                                    <label :for="$index+''+$index2+i.key">
+                                        {{val}}
+                                    </label>
+                                </div>
+                            </aside>
+                            <aside v-if="i.type == 'text'">
+                                <input type="text" :name="i.key" :value="i.value" v-model="i.value" />
+                            </aside>
+                        </section>
+                        <button>confirm</button>
+                        <button>cancel</button>
+                    </div> 
+                </div>
+            </td>
+            <td class="price">US $ <span>{{item.infor.price}}</span></td>
+            <td class="count">
+                <span class="reduce" @click="setNum(item.infor,'reduce')">-</span>
+                <input class="count-input" type="text" :value="item.infor.num"/>
+                <span class="add" @click="setNum(item.infor,'add')">+</span></td>
+            <td class="subtotal">US $ <span>{{ (item.infor.price * item.infor.num).toFixed(2)}}</span></td>
+            <td class="operation">
+                <span class="delete" v-on:click="remove(item,$index)">Delete</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="foot" id="foot">
+    <label class="fl select-all">
+        <input type="checkbox" class="check-all check"/>&nbsp;Bbl6oP
+    </label>
+        <a class="fl delete" id="deleteAll" href="javascript:;">delete</a>
+    <div class="fr closing" @click="submitInformation()">P a y</div>
+    <div class="fr total">US $ <span id="priceTotal">{{countPrice.toFixed(2)}}</span>
+    </div>
+    <div class="fr selected" id="selected">已选商品
+        <span id="selectedTotal"> {{count}}</span>件
+    </div>
+</div>
+ 
+<div class="addInfomation" v-for='(renderItem,$index3) in renderArr' @click='addInfor($index3,renderItem)'>
+    <dl>
+        <dt><img :src="renderItem.infor.img" alt=""></dt>
+        <dd>{{renderItem.infor.name}}</dd>
+        <dd style='color:red;margin-top:10px;'>{{renderItem.infor.price}}</dd>
+    </dl>
+</div>
+<article>
+<div class="alert" id='alert' v-for='(ii,$index4) in list'>
+    <div v-show='ii.submit' class="subText">
+        <ul>
+            <li>
+                <h4>商品名称:</h4>
+                <a href="#">{{ii.infor.name}}</a>
+            </li>
+            <li>
+                <h4>价格:</h4>
+                <a href="#">{{ii.infor.price}}</a>
+            </li>
+            <li>
+                <h4>颜色:</h4>
+                <a href="#">{{ii.infor.price}}</a>
+            </li>
+            <li>
+                <h4>尺寸:</h4>
+                <a href="#">{{ii.infor.price}}</a>
+            </li>
+            <li>
+                <h4>数量:</h4>
+                <a href="#">{{ii.infor.price}}</a>
+            </li>
+        </ul>
+        <button  @click='subSuccess($index4)'>提交订单</button>
+        <button  @click='subCancel()'>取消订单</button>
+    </div>
+</div>
+</article>
+ </div>
+<script type="text/javascript" src='js/vue.min.js'></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

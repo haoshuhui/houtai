@@ -1,0 +1,19 @@
+.list {
+  width: 100%;
+  height: 1.41rem; }
+  .list ul {
+    display: flex;
+    padding-left: 5.1%;
+    padding-top: .3rem;
+    width: 89.8%;
+    height: .93rem;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .list ul li {
+      width: 49%;
+      height: .43rem;
+      line-height: .43rem;
+      text-align: center;
+      font-size: .16rem;
+      margin-top: .07rem;
+      background: #F6F6F6; }

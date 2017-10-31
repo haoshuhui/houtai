@@ -1,0 +1,43 @@
+body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-size: .12rem;
+  flex-direction: column;
+  box-sizing: border-box; }
+
+header {
+  height: .47rem;
+  line-height: .47rem;
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid #ccc; }
+  header span {
+    position: absolute;
+    right: .2rem;
+    color: #11B91E; }
+  header h2 {
+    padding-left: .2rem;
+    width: .6rem;
+    color: #11B91E;
+    font-size: .2rem; }
+  header ul {
+    display: flex;
+    width: 48.5%;
+    margin-left: 18%; }
+    header ul li {
+      flex: 1;
+      padding-left: .1rem; }
+      header ul li a {
+        font-size: .16rem; }
+      header ul li:first-child a {
+        color: #2786E8; }
+      header ul li:nth-child(2) a {
+        color: #A17B64; }
+      header ul li:nth-child(3) a {
+        color: #EABB46; }
+      header ul li:last-child a {
+        color: #36BCCF; }
